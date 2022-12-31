@@ -1,6 +1,5 @@
 package org.paumard;
 
-import java.util.Comparator;
 import java.util.function.Function;
 
 public class MainComparator {
@@ -16,12 +15,12 @@ public class MainComparator {
 		Function<Person, String> f3 = p-> p.getFirstName();
 		
 		//Comparator<Person> cmpPerson = IComparator.comparing(p-> p.getAge());
-		Comparator<Person> cmpPersonAge = IComparator.comparing(Person::getAge);
-		Comparator<Person> cmpPersonLastName = IComparator.comparing(Person::getLastName);
+		IComparator<Person> cmpPersonAge = IComparator.comparing(Person::getAge);
+		IComparator<Person> cmpPersonLastName = IComparator.comparing(Person::getLastName);
 		
 		//Comparator<Person> cmp = cmpPersonAge.theComparing(cmpPersonLastName);
 		
-		Comparator<Person> cmp = IComparator.comparing(Person::getLastName)
+		IComparator<Person> cmp = IComparator.comparing(Person::getLastName)
 				.thenComparing(Person::getFirstName)
 				.thenComparing(Person::getAge);
 	}
